@@ -1,0 +1,81 @@
+@import 'partials/main';
+
+// Author: Jeremy Duong
+body {
+    //Overwrite the original body so company name shifts
+    // to the left (to look like the picture)
+    align-items: flex-start;
+}
+
+#company-name {
+    display:flex;
+    color: red;
+    margin: 0px 0px 25px 0px;
+}
+
+// Styling inside the section tag
+#JeremyCode {
+    display:flex;
+    flex-direction:column;
+    padding: 40px;
+
+    table {
+        #table-headings {
+            padding: 0px 0px 10px 0px;
+            
+            th {
+                text-align: start;
+                border: 0px;
+                padding: 0px 0px 10px 0px;
+            }
+        }
+        .table-data {
+            border-radius: 5px;
+            height: 30px;
+            td {
+                border: 0px;
+            }
+        }
+        .table-data:hover {
+            cursor: pointer;
+            background-color: rgb(221, 221, 221);
+        }
+        .user-name {
+            color:dodgerblue;
+        }
+    }
+}
+
+// Styling for the modal
+// #modal {
+//     display: none;
+//     position: fixed;
+//     z-index: 1;
+//     left: 0;
+//     top: 0;
+//     width: 100%;
+//     height: 100%;
+//     overflow: auto;
+//     background-color: rgb(0,0,0);
+//     background-color: rgba(0, 0, 0, 0.384);
+//     div {
+//         display:flex;
+//         flex-wrap: wrap;
+//         width: 50%;
+//         background-color: #fefefe;
+//         margin: 100px auto;
+//         height: 50%;
+//         border-radius: 10px;
+
+//         #modal-content {
+//             margin: 20px auto;
+//             border: 10px 0px 0px 0px;
+//             overflow: auto;
+//             width: 91%;
+//             height: 90%;
+//             li {
+//                 height: 35px;
+//             }
+//         }
+//     }
+// }

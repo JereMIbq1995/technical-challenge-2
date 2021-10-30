@@ -1,0 +1,24 @@
+{
+  "name": "tech-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-ts": "tsc scripts/index.ts --outfile js/build.js",
+    "watch-ts": "tsc --watch scripts/index.ts --outfile js/build.js",
+    "build-scss": "node-sass style/scss style.scss style.css -o style/scss/",
+    "watch-scss": "node-sass --watch style/scss style.scss style.css -o style/scss/",
+    "start": "npm run build-ts && npm run build-scss && nodemon app.js"
+  },
+  "author": "Matt Pickett",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-sass": "^6.0.1",
+    "typescript": "^4.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}

@@ -1,0 +1,62 @@
+$white: #FFFFFF;
+$light-one: #F5F6F7;
+$light-two: #ECEEEF;
+$light-three: #E0E3E5;
+$light-four: #D3D8DC;
+$light-five: #B1BBC2;
+$light-six: #7D8D9A;
+
+$dark-six: #60707d;
+$dark-five: #506676;
+$dark-four: #485D6C;
+$dark-three: #364652;
+$dark-two: #1C2730;
+$dark-one: #121D25;
+$black: #000000;
+
+$text-lightest: #7D8D9A;
+$text-light: #425563;
+$text: #303D46;
+
+$brand-primary: #FF6900;
+$brand-secondary: #1BD0FF;
+$brand-dark: #425563;
+
+$luminary-teal: #17C4F1;
+$luminary-teal-dark: rgb(12, 103, 126);
+
+$blue-primary: #2485E1;
+$blue-secondary: #1BD0FF;
+$green-primary: #3DCA59;
+$yellow-primary: #FACB34;
+$orange-primary: #FF920B;
+$red-primary: #F54700;
+$fuchsia-primary: #E03486;
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+body {
+    background-color: $light-one;
+    flex-flow: column nowrap;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 50px;
+    display: flex;
+
+    section {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        background-color: $white;
+    }
+
+
+}
