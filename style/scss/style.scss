@@ -19,31 +19,37 @@ body {
     flex-direction:column;
     padding: 40px;
 
-    table {
-        #table-headings {
-            padding: 0px 0px 10px 0px;
-            
-            th {
-                text-align: start;
-                border: 0px;
-                padding: 0px 0px 10px 0px;
-            }
-        }
-        .table-data {
-            border-radius: 5px;
-            height: 30px;
-            td {
-                border: 0px;
-            }
-        }
-        .table-data:hover {
-            cursor: pointer;
-            background-color: rgb(221, 221, 221);
-        }
-        .user-name {
-            color:dodgerblue;
-        }
+    #nav-bar {
+        display:flex;
+        flex-direction: row;
+        justify-content: space-evenly;
     }
+
+    // table {
+    //     #table-headings {
+    //         padding: 0px 0px 10px 0px;
+            
+    //         th {
+    //             text-align: start;
+    //             border: 0px;
+    //             padding: 0px 0px 10px 0px;
+    //         }
+    //     }
+    //     .table-data {
+    //         border-radius: 5px;
+    //         height: 30px;
+    //         td {
+    //             border: 0px;
+    //         }
+    //     }
+    //     .table-data:hover {
+    //         cursor: pointer;
+    //         background-color: rgb(221, 221, 221);
+    //     }
+    //     .user-name {
+    //         color:dodgerblue;
+    //     }
+    // }
 }
 
 // Styling for the modal
