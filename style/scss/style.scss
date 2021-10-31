@@ -22,7 +22,99 @@ body {
     #nav-bar {
         display:flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        align-items: flex-start;
+        // justify-content: space-around;
+        width: 60%;
+
+        div {
+            font-size : 14px;
+            padding : 5px;
+            border : 1px;
+            margin: 10px;
+            font-weight: bold;
+            border-radius : 20px;
+            // background-color: rgb(207, 207, 207);
+
+            span {
+                color:white;
+                padding : 2px 5px 2px 5px;
+                border: 1px;
+                margin: 0px 0px 0px 5px;
+                border-radius: 50px;
+                font-weight: bold;
+                background-color: grey;
+            }
+        }
+        div:hover {
+            cursor: pointer;
+        }
+    }
+
+    #order-table {
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+        border: 1px;
+        border-spacing: 5px;
+        
+        #headings, .table-row {
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            width: 99%;
+            clear: both;
+            div {
+                font-weight: bold;
+            }
+        }
+
+        #headings {
+            padding: 5px 10px 5px 10px;
+            border: 1px;
+            border-radius: 5px;
+            margin: 2px;
+            background-color: rgb(231, 227, 227);
+            div {
+                font-size: 12px;
+            }
+        }
+
+        #table-rows {
+            .table-row {
+                padding: 10px;
+                border: 1px;
+                border-radius:2px;
+                margin: 3px 2px 3px 2px;
+                background-color: white;
+                height:50px;
+                align-items: center;
+                .order-id {
+                    color: rgb(51, 116, 255);
+                }
+                .progress-button {
+                    opacity:0;
+                }
+            }
+            .table-row:hover > .progress-button {
+                display:flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 150px;
+                padding: 2px;
+                border:1px;
+                border-radius: 5px;
+                // margin:2px;
+
+                background-color: rgb(40, 108, 255);
+                color: white;
+                opacity:1;
+            }
+            .table-row:hover > .progress-button:hover {
+                cursor: pointer;
+            }
+        }
+
+        
     }
 
     // table {
