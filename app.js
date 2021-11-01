@@ -68,7 +68,7 @@ app.post("/updateOrderStatus", (req, res) => {
             return;
         }
 
-        // Look for the order in the db, up
+        // Look for the order in the db, then update it!
         let dataObject = JSON.parse(data);
         let orderFound = false;
         let updateValid = false;
