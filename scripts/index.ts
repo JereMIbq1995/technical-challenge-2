@@ -72,9 +72,9 @@ function progressOrder(event : any) {
     // Loop through all the orders to see which one needs to be progressed
     // to the next stage
     for (let order of ORDERS) {
-        if (order.id == orderId) {
+        if (Number(order.id) == orderId) {
             // change status of order
-            order.status += 1;
+            order.status = Number(order.status) + 1;
             // Update tabs length
             updateTabsLength();
             break;
@@ -206,17 +206,3 @@ function getOrders() {
 
 // Call this function first when the page is loaded
 getOrders()
-
-/*****************************************************************
- * This is for testing purposes. If you ever want to reset the database,
- * just hit the Reset Database button and this will run.
- *****************************************************************/
-function resetDatabase() {
-    fetch("/resetDb", {method: 'POST'})
-        .then(response => response.text())
-        .then((responseText) => {
-            console.log(responseText);
-            location.reload();
-        })
-}
-document.getElementById("resetDatabase").addEventListener("click", resetDatabase)
