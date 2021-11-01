@@ -61,8 +61,10 @@ function updateTabsLength() {
 /**************************************************************
 * This function is the onclick handler of the progress button.
 * Behavior:
-*     - Make a POST request to the back-end to update order status
-*     - If the order was updated successfully, change the front end accordingly
+*     - Find out the id or the order to progress
+*     - Remove the row of that order
+*     - Increment the status of that order inside ORDERS
+*     - Update tabs' lengths
 ***************************************************************/
 function progressOrder(event : any) {
     // First, look at what is being clicked and its id
