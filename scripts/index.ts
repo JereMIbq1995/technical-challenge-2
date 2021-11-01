@@ -60,49 +60,26 @@ function updateTabsLength() {
 
 /**************************************************************
 * This function is the onclick handler of the progress button.
+* Behavior:
+*     - Make a POST request to the back-end to update order status
+*     - If the order was updated successfully, change the front end accordingly
 ***************************************************************/
 function progressOrder(event : any) {
     // First, look at what is being clicked and its id
     let orderId = Number((<HTMLAreaElement>event.currentTarget).id.slice(12));
-    let currentStatus = 0
+    // Remove that element from the page
+    document.getElementById("table-row-" + orderId).remove();
+    // Loop through all the orders to see which one needs to be progressed
+    // to the next stage
     for (let order of ORDERS) {
         if (order.id == orderId) {
-            currentStatus = order.status;
+            // change status of order
+            order.status += 1;
+            // Update tabs length
+            updateTabsLength();
             break;
         }
     }
-    let newStatus = Number(currentStatus) + 1;
-
-    // A call to the server to update the order's status in the database
-    // This is probably not necessary
-    let queryString = "/updateOrderStatus?orderId=" + orderId + "&currentStatus=" + currentStatus + "&newStatus=" + newStatus;
-    fetch(queryString, {
-        method: 'POST'
-    })
-    .then((response) => response.text())
-    .then((responseText) => {
-
-        // 1 means it updated ok!
-        // If the update was a success, do the front-end stuff...
-        if (Number(responseText) == 1) {
-            // Remove that element from the page
-            document.getElementById("table-row-" + orderId).remove();
-
-            // Loop through all the orders to see which one needs to be progressed
-            // to the next stage
-            for (let order of ORDERS) {
-                if (order.id == orderId) {
-                    order.status += 1;
-                    break;
-                }
-            }
-
-            // Since an order's status has changed, the tabs' lengths need to be updated 
-            updateTabsLength();
-        } else {
-            alert("Update was unsucessful for some reason!");
-        }
-    })
 }
 
 /**************************************************************
