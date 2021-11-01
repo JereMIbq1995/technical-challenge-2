@@ -73,10 +73,10 @@ app.post("/updateOrderStatus", (req, res) => {
         let orderFound = false;
         let updateValid = false;
         for (order of dataObject.solarDesignOrders) {
-            if (order.id == req.query.orderId) {
+            if (Number(order.id) == Number(req.query.orderId)) {
                 orderFound = true;
-                if (order.status == req.query.currentStatus) {
-                    order.status = req.query.newStatus;
+                if (Number(order.status) == Number(req.query.currentStatus)) {
+                    order.status = Number(req.query.newStatus);
                     updateValid = true;
                 }
             }
