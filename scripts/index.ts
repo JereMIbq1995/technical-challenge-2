@@ -67,19 +67,49 @@ function updateTabsLength() {
 function progressOrder(event : any) {
     // First, look at what is being clicked and its id
     let orderId = Number((<HTMLAreaElement>event.currentTarget).id.slice(12));
-    // Remove that element from the page
-    document.getElementById("table-row-" + orderId).remove();
-    // Loop through all the orders to see which one needs to be progressed
-    // to the next stage
+    let currentStatus = 0
     for (let order of ORDERS) {
         if (order.id == orderId) {
-            // change status of order
-            order.status += 1;
-            // Update tabs length
-            updateTabsLength();
+            currentStatus = order.status;
             break;
         }
     }
+    let newStatus = Number(currentStatus) + 1;
+
+    // A call to the server to update the order's status in the database
+    // This is probably not necessary
+    let queryString = "/updateOrderStatus?orderId=" + orderId + "&currentStatus=" + currentStatus + "&newStatus=" + newStatus;
+    fetch(queryString, {
+        method: 'POST'
+    })
+    .then((response) => response.text())
+    .then((responseText) => {
+        // If the update was a success, do the front-end stuff...
+        console.log(responseText);
+        if (Number(responseText) == 1) {
+            // Remove that element from the page
+            document.getElementById("table-row-" + orderId).remove();
+            // Loop through all the orders to see which one needs to be progressed
+            // to the next stage
+            for (let order of ORDERS) {
+                if (order.id == orderId) {
+                    order.status = Number(order.status) + 1;
+                    break;
+                }
+            }
+        } else {
+            console.log("Update was unsucessful for some reason!");
+        }
+        return responseText;
+    })
+    .then((responseText) => {
+        // This is done in another "then" to make sure that ORDERS are updated
+        // before we calculate the tab length
+        if (Number(responseText) == 1) { //Only do this if db update succeeded
+            // Since an order's status has changed, the tabs' lengths need to be updated 
+            updateTabsLength();
+        }
+    })
 }
 
 /**************************************************************
