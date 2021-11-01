@@ -5,10 +5,10 @@
 ***************************************************************/
 
 // Assign a constant for each of the 4 tabs
-const UNASSIGNED = 1;
-const IN_PROGRESS = 2;
-const COMPLETE = 3;
-const REQUESTED_REVISION = 4;
+const UNASSIGNED : Number = 1;
+const IN_PROGRESS : Number = 2;
+const COMPLETE : Number = 3;
+const REQUESTED_REVISION : Number = 4;
 
 let ORDERS = []
 let currentTab : Number = 0 // Initially, no tab is selected
@@ -40,14 +40,14 @@ function updateTabsLength() {
     let lengthTab4 = 0;   // REQUESTED REVISION
 
     for (let order of ORDERS) {
-        if (order.status == 1) {
-            lengthTab1 += 1;
-        } else if (order.status == 2) {
-            lengthTab2 += 1;
-        } else if (order.status == 3) {
-            lengthTab3 += 1;
-        } else if (order.status == 4) {
-            lengthTab4 += 1;
+        if (Number(order.status) == UNASSIGNED) {
+            lengthTab1 = Number(lengthTab1) + 1;
+        } else if (Number(order.status) == IN_PROGRESS) {
+            lengthTab2 = Number(lengthTab2) + 1;
+        } else if (Number(order.status) == COMPLETE) {
+            lengthTab3 = Number(lengthTab3) + 1;
+        } else if (Number(order.status) == REQUESTED_REVISION) {
+            lengthTab4 = Number(lengthTab4) + 1;
         }
     }
 
